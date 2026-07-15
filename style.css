@@ -200,3 +200,167 @@ label.card{
 .result-hero{
     padding:50px 20px;
 }
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width:768px){
+
+header{
+    padding:15px;
+}
+
+header h2{
+    font-size:30px;
+}
+
+.hero{
+    padding:40px 15px;
+}
+
+.hero h2{
+    font-size:42px;
+    line-height:1.2;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.live-badge{
+    font-size:13px;
+    padding:8px 15px;
+}
+
+.cards{
+    grid-template-columns:1fr;
+    gap:20px;
+    margin-top:30px;
+}
+
+.card{
+    min-height:140px;
+    padding:20px;
+}
+
+.card h3{
+    font-size:22px;
+}
+
+.icon{
+    font-size:42px;
+}
+
+button{
+    width:90%;
+    max-width:320px;
+    padding:15px;
+    font-size:18px;
+}
+
+input[type="text"]{
+    width:100% !important;
+}
+
+.container{
+    width:95%;
+}
+
+footer{
+    font-size:14px;
+    padding:20px;
+}
+
+}
+/* ================= RESULT PAGE ================= */
+
+.result-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin:40px auto;
+}
+
+.result-buttons a{
+    display:flex;
+    text-decoration:none;
+    color:inherit;
+}
+
+.result-buttons a:hover{
+    text-decoration:none;
+}
+.result-buttons button{
+    width:260px;
+    min-height:70px;
+    padding:15px 20px;
+    font-size:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    text-align:center;
+    white-space:nowrap;
+    text-decoration:none;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+header h2{
+    font-size:28px;
+}
+
+.hero{
+    padding:35px 15px;
+}
+
+.hero h2{
+    font-size:40px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.card{
+    min-height:140px;
+    padding:20px;
+}
+
+.card h3{
+    font-size:22px;
+}
+
+.icon{
+    font-size:42px;
+}
+
+.hero button{
+    width:auto;
+}
+
+.result-buttons{
+    flex-direction:column;
+}
+
+.result-buttons button{
+    width:90%;
+    max-width:320px;
+    white-space:normal;
+}
+.container{
+    width:95%;
+}
+
+footer{
+    font-size:14px;
+}
+
+}
