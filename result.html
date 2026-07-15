@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Result | LifeLine AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <h2>🚑 LifeLine AI</h2>
+</header>
+
+<section class="hero result-hero">
+
+<div class="live-badge">🤖 AI Emergency Report</div>
+
+<h2>AI Analysis Result</h2>
+
+<p>
+Your emergency assessment has been completed.<br>
+Please follow the recommended actions below.
+</p>
+
+</section>
+
+<div class="container">
+
+<div class="card">
+
+<h3>🔴 Risk Level</h3>
+
+<h2 style="color:#ff4d4d;">HIGH RISK</h2>
+
+<hr style="margin:20px 0; border-color:#334155;">
+
+<p><strong>❤️ Possible Emergency</strong><br>Heart Attack</p>
+
+<br>
+
+<p><strong>📊 AI Confidence Score</strong><br>92%</p>
+
+<br>
+
+<p><strong>🚑 Immediate Action</strong></p>
+
+<ul style="text-align:left; margin-top:10px; line-height:2;">
+<li>Call 108 Immediately</li>
+<li>Stay Calm</li>
+<li>Do not drive yourself</li>
+<li>Keep emergency contact nearby</li>
+</ul>
+
+</div>
+
+</div>
+<div style="text-align:center; margin-top:40px;">
+
+<a href="index.html">
+<button>🏠 Home</button>
+</a>
+
+<a href="symptoms.html">
+    <button>🔄 New Assessment</button>
+</a>
+<a href="https://www.google.com/maps/search/hospitals+near+me" target="_blank">
+    <button>🏥 Nearby Hospitals</button>
+</a>
+
+<a href="tel:108">
+    <button>📞 Call 108</button>
+</a>
+</div>
+<div style="width:90%;max-width:900px;margin:40px auto;padding:20px;background:#1e293b;border:1px solid #f59e0b;border-radius:12px;color:#f8fafc;">
+<strong style="color:#fbbf24;">⚠️ Medical Disclaimer</strong><br><br>
+
+LifeLine AI provides an AI-based emergency assessment for educational purposes only. It should not replace professional medical advice. In a real emergency, immediately call 108 or visit the nearest hospital.
+</div>
+
+
+<footer>
+Made with ❤️ for Idea2Impact 2026
+</footer>
+
+<script>
+const score = Number(localStorage.getItem("riskScore"));
+const emergency = localStorage.getItem("selectedEmergency");
+
+const card = document.querySelector(".card");
+
+const emergencyAdvice = {
+
+  "Heart Attack": {
+    confidence: "92%",
+    advice: [
+      "📞 Call 108 Immediately",
+      "🪑 Stay calm and sit down",
+      "🚫 Do not drive yourself",
+      "🏥 Reach the nearest hospital"
+    ]
+  },
+
+  "Burns": {
+    confidence: "89%",
+    advice: [
+      "💧 Cool the burn under running water for 20 minutes",
+      "🧊 Do not apply ice",
+      "🩹 Cover with a clean cloth",
+      "🏥 Seek medical care if severe"
+    ]
+  },
+
+  "Snake Bite": {
+    confidence: "94%",
+    advice: [
+      "🧍 Keep the person still",
+      "🚫 Do not cut or suck the wound",
+      "📞 Call 108",
+      "🏥 Reach the nearest hospital immediately"
+    ]
+  },
+
+  "Electric Shock": {
+    confidence: "90%",
+    advice: [
+      "⚡ Switch off the power source first",
+      "🚫 Do not touch the victim directly if electricity is still on",
+      "📞 Call 108",
+      "🩺 Check breathing and pulse"
+    ]
+  },
+
+  "Heavy Bleeding": {
+    confidence: "91%",
+    advice: [
+      "🩸 Apply direct pressure to the wound",
+      "⬆️ Raise the injured area if possible",
+      "📞 Call 108",
+      "🩹 Keep pressure until help arrives"
+    ]
+  },
+
+  "Choking": {
+    confidence: "93%",
+    advice: [
+      "🗣️ Encourage coughing if possible",
+      "🤲 Give abdominal thrusts (Heimlich) if trained",
+      "📞 Call 108",
+      "🚑 Seek emergency medical help immediately"
+    ]
+  }
+
+};
+
+if(score >= 3){
+
+  const info = emergencyAdvice[emergency];
+  if (!info) {
+    card.innerHTML = "<h2>Emergency data not found.</h2>";
+    throw new Error("Unknown emergency: " + emergency);
+}
+
+card.innerHTML = `
+<h3>🔴 Risk Level</h3>
+
+<h2 style="color:#ef4444;">HIGH RISK</h2>
+
+<p><strong>🚨 Possible Emergency</strong><br>${emergency}</p>
+
+<p><strong>📊 AI Confidence Score</strong><br>${info.confidence}</p>
+
+<p><strong>🚑 Immediate Action</strong></p>
+
+<ul style="text-align:left;line-height:2;">
+${info.advice.map(item => `<li>${item}</li>`).join("")}
+</ul>
+`;
+
+}
+
+else if(score >=2){
+
+const info = emergencyAdvice[emergency];
+
+card.innerHTML = `
+<h3>🟠 Risk Level</h3>
+
+<h2 style="color:orange;">MEDIUM RISK</h2>
+
+<p><strong>🚨 Possible Emergency</strong><br>${emergency}</p>
+
+<p><strong>📊 AI Confidence Score</strong><br>${info.confidence}</p>
+
+<p><strong>🩺 Recommendation</strong></p>
+
+<ul style="text-align:left;line-height:2;">
+${info.advice.map(item => `<li>${item}</li>`).join("")}
+</ul>
+`;
+
+}
+else{
+
+const info = emergencyAdvice[emergency];
+
+card.innerHTML = `
+<h3>🟢 Risk Level</h3>
+
+<h2 style="color:#22c55e;">LOW RISK</h2>
+
+<p><strong>🚨 Possible Emergency</strong><br>${emergency}</p>
+
+<p><strong>📊 AI Confidence Score</strong><br>${info.confidence}</p>
+
+<p>No immediate danger detected.</p>
+
+<p>Continue monitoring your health.</p>
+`;
+
+}
+</script>
+
+</body>
+</html>

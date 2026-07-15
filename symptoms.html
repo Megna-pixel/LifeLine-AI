@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symptoms | LifeLine AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <h2>🚑 LifeLine AI</h2>
+</header>
+
+<section class="hero">
+    <div class="live-badge">❤️ Emergency Assessment</div>
+
+    <h2 id="title">Heart Attack Assessment</h2>
+
+    <p>
+        Select the symptoms you are experiencing.<br>
+        Our AI will estimate the emergency risk.
+    </p>
+</section>
+
+<div class="container">
+
+<div class="cards" id="symptomsContainer"> </div>
+
+
+<div style="text-align:center; margin:40px;">
+
+<button id="analyzeBtn">
+    🤖 Analyze with AI
+</button>
+
+</div>
+
+</div>
+
+<footer>
+Made with ❤️ for Idea2Impact 2026
+</footer>
+
+<script src="script.js"></script>
+
+ <script>
+const emergency = localStorage.getItem("emergency");
+
+if (emergency) {
+    document.getElementById("title").innerText = emergency + " Assessment";
+}
+</script>
+</body>
+</html>
