@@ -157,3 +157,132 @@ if (symptomsContainer) {
     });
 
 }
+
+const askAI = document.getElementById("askAI");
+
+if (askAI) {
+
+askAI.addEventListener("click", () => {
+
+const question = document
+.getElementById("userQuestion")
+.value
+.toLowerCase();
+
+let answer = "";
+
+
+if (
+    question.includes("heart") ||
+    question.includes("heart attack") ||
+    question.includes("chest pain") ||
+    question.includes("gunde") ||
+    question.includes("gunde noppi")
+) {
+
+    answer = "❤️ Stay calm, call 108 immediately, chew aspirin only if advised by a doctor, and do not drive yourself.";
+
+}
+
+else if (
+    question.includes("burn") ||
+    question.includes("burnt") ||
+    question.includes("fire") ||
+    question.includes("kalindi") ||
+    question.includes("kaalindi")
+) {
+
+    answer = "🔥 Cool the burn under running water for 20 minutes. Do not apply ice or toothpaste.";
+
+}
+
+else if (
+    question.includes("snake") ||
+    question.includes("snake bite") ||
+    question.includes("paamu") ||
+    question.includes("paamu karichindi")
+) {
+
+    answer = "🐍 Keep the person still. Do not cut or suck the wound. Call 108 immediately.";
+
+}
+
+else if (
+    question.includes("bleeding") ||
+    question.includes("blood") ||
+    question.includes("cut") ||
+    question.includes("cutting") ||
+    question.includes("wound") ||
+    question.includes("cheyi cut") ||
+    question.includes("hand cut") ||
+    question.includes("raktham")
+) {
+
+    answer = "🩸 Wash the wound with clean water, apply firm pressure using a clean cloth, cover it with a sterile bandage, and call 108 if bleeding is severe.";
+
+}
+
+else if (
+    question.includes("electric") ||
+    question.includes("shock") ||
+    question.includes("current") ||
+    question.includes("karent")
+) {
+
+    answer = "⚡ Turn off the electricity first. Never touch the victim until the power is disconnected.";
+
+}
+
+else if (
+    question.includes("choking") ||
+    question.includes("can't breathe") ||
+    question.includes("cant breathe") ||
+    question.includes("can't speak") ||
+    question.includes("food stuck") ||
+    question.includes("oopiri") ||
+    question.includes("gonthulo")
+) {
+
+    answer = "🫁 Encourage coughing. If severe, perform the Heimlich maneuver if trained and call 108 immediately.";
+
+}
+
+else {
+
+    answer = "🤖 I couldn't understand. Please contact emergency services or ask another first-aid question.";
+
+}
+
+
+document.getElementById("aiAnswer").innerHTML = `
+
+<div style="
+margin-top:20px;
+padding:20px;
+background:#1e293b;
+border-radius:10px;
+color:white;
+">
+
+${answer}
+
+</div>
+
+`;
+
+});
+
+}
+
+
+const startAssessment = document.getElementById("startAssessment");
+
+if (startAssessment) {
+    startAssessment.addEventListener("click", () => {
+
+        // Default emergency
+        localStorage.setItem("emergency", "Heart Attack");
+
+        window.location.href = "symptoms.html";
+    });
+}
